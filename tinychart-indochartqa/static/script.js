@@ -45,21 +45,52 @@ function addUserMessage(message){
 
 }
 
+function addBotMessage(pot, answer){
 
-function addBotMessage(message){
+    // Hapus tag <comment> dan <step>
+    const potText = pot
+        .replace(/<comment>/g, "")
+        .replace(/<\/comment>/g, "")
+        .replace(/<step>/g, "")
+        .replace(/<\/step>/g, "");
+
+    // Answer hanya ditampilkan jika ada
+    let answerHTML = "";
+
+    if (answer !== null && answer !== undefined) {
+        answerHTML = `
+            <div class="final-answer">
+                <strong>Answer:</strong>
+                <span class="answer-text"></span>
+            </div>
+        `;
+    }
 
     chatBox.innerHTML += `
         <div class="bot-message">
             <div class="bot-bubble">
-                ${message}
+
+                <pre class="pot-code"></pre>
+
+                ${answerHTML}
+
             </div>
         </div>
     `;
 
+    const botBubble = chatBox.lastElementChild.querySelector(".bot-bubble");
+
+    // Tampilkan PoT tanpa tag XML
+    botBubble.querySelector(".pot-code").textContent = potText;
+
+    // Isi Answer jika memang ada
+    if (answer !== null && answer !== undefined) {
+        botBubble.querySelector(".answer-text").textContent = answer;
+    }
+
     scrollToBottom();
 
 }
-
 
 // ==========================
 // Loading Bubble
@@ -160,7 +191,7 @@ async function askQuestion(){
 
         removeLoading();
 
-        addBotMessage(data.answer);
+        addBotMessage(data.pot, data.answer);
 
     }
 

@@ -19,8 +19,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-USE_MODEL = False
-
+USE_MODEL = True
 
 # ============================================================
 # Load model
@@ -55,37 +54,20 @@ async def home():
 # ============================================================
 # Prediction API
 # ============================================================
-
 @app.post("/predict")
 async def predict(
     image: UploadFile = File(...),
     question: str = Form(...)
 ):
+    filename = f"{uuid.uuid4().hex}.png"
+    image_path = os.path.join(UPLOAD_FOLDER, filename)
 
-    if USE_MODEL:
+    with open(image_path, "wb") as buffer:
+        buffer.write(await image.read())
 
-        # Generate unique filename
-        filename = f"{uuid.uuid4().hex}.png"
+    result = model.predict(
+        image_path,
+        question
+    )
 
-        image_path = os.path.join(
-            UPLOAD_FOLDER,
-            filename
-        )
-
-        # Save uploaded image
-        with open(image_path, "wb") as buffer:
-            buffer.write(await image.read())
-
-        # Run inference
-        answer = model.predict(
-            image_path,
-            question
-        )
-
-    else:
-
-        answer = f"Dummy answer: {question}"
-
-    return {
-        "answer": answer
-    }
+    return result
