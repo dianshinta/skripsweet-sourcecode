@@ -18,22 +18,6 @@ imageInput.addEventListener("change", function () {
 
     if (!file) return;
 
-    const allowedTypes = ["image/jpeg", "image/png"];
-
-    if (!allowedTypes.includes(file.type)) {
-
-        alert("Mohon unggah file JPG, JPEG, atau PNG.");
-
-        this.value = "";
-
-        previewImage.src = "";
-        previewImage.classList.add("d-none");
-
-        emptyPreview.classList.remove("d-none");
-
-        return;
-    }
-
     previewImage.src = URL.createObjectURL(file);
 
     previewImage.classList.remove("d-none");
@@ -166,7 +150,7 @@ async function askQuestion(){
 
     if(!image){
 
-        alert("Mohon unggah gambar grafik.");
+        alert("Please upload a chart image.");
 
         return;
 
@@ -174,7 +158,7 @@ async function askQuestion(){
 
     if(question === ""){
 
-        alert("Mohon masukkan pertanyaan.");
+        alert("Please enter a question.");
 
         return;
 
@@ -215,7 +199,7 @@ async function askQuestion(){
 
         removeLoading();
 
-        addBotMessage("Terjadi error.");
+        addBotMessage("An error occurred.");
 
         console.error(error);
 
