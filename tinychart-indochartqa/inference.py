@@ -14,7 +14,7 @@ class TinyChartInference:
     def __init__(
         self,
         base_model="mPLUG/TinyChart-3B-768",
-        lora_model="shiinn97/tinychart3B-indochartqav2",
+        lora_model="shiinn97/tinychart3B-indochartqa",
         hf_token=os.getenv("HF_TOKEN"),
         device=None,
     ):
