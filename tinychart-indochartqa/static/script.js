@@ -17,7 +17,19 @@ imageInput.addEventListener("change", function () {
     const file = this.files[0];
 
     if (!file) return;
+        
+    const allowedExtensions = ["png", "jpg", "jpeg"];
+    const extension = image.name.split(".").pop().toLowerCase();
 
+    if(!allowedExtensions.includes(extension)) {
+        alert("Mohon unggah file JPG, JPEG, atau PNG.");
+        imageInput.value = "";
+        previewImage.src = "";
+        previewImage.classList.add("d-none");
+        emptyPreview.classList.remove("d-none");
+        return;
+    }
+    
     previewImage.src = URL.createObjectURL(file);
 
     previewImage.classList.remove("d-none");
@@ -145,21 +157,7 @@ function scrollToBottom(){
 
 async function askQuestion(){
 
-    const image = imageInput.files[0];
-    if(image) {
-        const allowedExtensions = ["png", "jpg", "jpeg"];
-        const extension = image.name.split(".").pop().toLowerCase();
-
-        if(!allowedExtensions.includes(extension)) {
-            alert("Mohon unggah file JPG, JPEG, atau PNG.");
-            imageInput.value = "";
-            previewImage.src = "";
-            previewImage.classList.add("d-none");
-            emptyPreview.classList.remove("d-none");
-            return;
-        }
-    }
-    
+    const image = imageInput.files[0];    
     const question = questionInput.value.trim();
 
     if(!image){
