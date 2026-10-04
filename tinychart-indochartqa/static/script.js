@@ -146,11 +146,25 @@ function scrollToBottom(){
 async function askQuestion(){
 
     const image = imageInput.files[0];
+    if(image) {
+        const allowedExtensions = ["png", "jpg", "jpeg"];
+        const extension = image.name.split(".").pop().toLowerCase();
+
+        if(!allowedExtensions.includes(extension)) {
+            alert("Mohon unggah file JPG, JPEG, atau PNG.");
+            imageInput.value = "";
+            previewImage.src = "";
+            previewImage.classList.add("d-none");
+            emptyPreview.classList.remove("d-none");
+            return;
+        }
+    }
+    
     const question = questionInput.value.trim();
 
     if(!image){
 
-        alert("Please upload a chart image.");
+        alert("Mohon unggah gambar grafik.");
 
         return;
 
@@ -158,7 +172,7 @@ async function askQuestion(){
 
     if(question === ""){
 
-        alert("Please enter a question.");
+        alert("Mohon masukkan pertanyaan.");
 
         return;
 
