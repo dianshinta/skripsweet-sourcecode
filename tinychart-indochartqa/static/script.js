@@ -19,7 +19,7 @@ imageInput.addEventListener("change", function () {
     if (!file) return;
         
     const allowedExtensions = ["png", "jpg", "jpeg"];
-    const extension = image.name.split(".").pop().toLowerCase();
+    const extension = file.name.split(".").pop().toLowerCase();
 
     if(!allowedExtensions.includes(extension)) {
         alert("Mohon unggah file JPG, JPEG, atau PNG.");
