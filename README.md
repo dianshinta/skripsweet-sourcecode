@@ -10,26 +10,26 @@ Buleleng.
   --------------------------------------------------------------------------
   Informasi                           Keterangan
   ----------------------------------- --------------------------------------
-  Nama aplikasi                       TanyaGrafik
+  Nama aplikasi:                      TanyaGrafik
 
-  Jenis proyek                        Prototipe chatbot Chart Question
+  Jenis proyek:                        Prototipe chatbot Chart Question
                                       Answering
                                       
-  Model dasar                         `mPLUG/TinyChart-3B-768`
+  Model dasar:                         `mPLUG/TinyChart-3B-768`
   
-  Vision tower                        `mPLUG/TinyChart-3B-768-siglip`
+  Vision tower:                        `mPLUG/TinyChart-3B-768-siglip`
   
-  Model hasil fine-tuning             `https://huggingface.co/shiinn97/tinychart3B-indochartqa`
+  Model hasil fine-tuning:             `https://huggingface.co/shiinn97/tinychart3B-indochartqa`
   
-  Dataset                             `https://huggingface.co/datasets/shiinn97/indochartqav2`
+  Dataset:                             `https://huggingface.co/datasets/shiinn97/indochartqav2`
   
-  Framework backend                   FastAPI
+  Framework backend:                   FastAPI
   
-  Bahasa antarmuka/pertanyaan         Bahasa Indonesia
+  Bahasa antarmuka/pertanyaan:         Bahasa Indonesia
   
-  Pengembang/peneliti                 Putu Dian Shinta Prativi
+  Pengembang/peneliti:                 Putu Dian Shinta Prativi
   
-  Konteks pengembangan                Skripsi, Program Studi
+  Konteks pengembangan:                Skripsi, Program Studi
                                       Komputasi Statistik, Politeknik
                                       Statistika STIS
   --------------------------------------------------------------------------
