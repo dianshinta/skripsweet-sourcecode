@@ -99,34 +99,6 @@ Endpoint `/predict` digunakan oleh antarmuka untuk mengirim gambar dan
 pertanyaan ke backend. Format input dan respons mengikuti implementasi
 pada `app.py`.
 
-## Cara Menjalankan
-
-Langkah berikut merupakan gambaran umum. Sesuaikan perintah instalasi
-dan lokasi model dengan konfigurasi proyek yang tersedia.
-
-1.  Siapkan lingkungan Python yang sesuai dengan dependensi model.
-
-2.  Instal dependensi yang tercantum pada berkas `requirements.txt`,
-    jika tersedia.
-
-3.  Pastikan model hasil fine-tuning dapat diakses oleh konfigurasi
-    inferensi.
-
-4.  Jalankan aplikasi FastAPI sesuai konfigurasi proyek, misalnya:
-
-    ``` bash
-    uvicorn app:app --host 0.0.0.0 --port 8000
-    ```
-
-5.  Buka alamat lokal yang ditampilkan oleh server pada peramban.
-
-6.  Unggah gambar grafik, tuliskan pertanyaan, lalu kirim untuk
-    memperoleh jawaban.
-
-Perintah di atas adalah contoh umum untuk aplikasi FastAPI dengan objek
-aplikasi bernama `app` pada `app.py`. Jika nama objek atau konfigurasi
-aktual berbeda, sesuaikan perintahnya.
-
 ## Batasan
 
 -   Sistem berfokus pada pertanyaan tertutup yang jawabannya dapat
